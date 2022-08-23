@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from permissions.ModelPermissions import ModelPermissions
 from users import models, serializers
 from rest_framework_simplejwt.views import TokenObtainPairView
 
@@ -6,6 +7,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 class UserViewset(viewsets.ModelViewSet):
     queryset = models.User.objects.all()
     serializer_class = serializers.UserSerializer
+    permission_classes = [ModelPermissions]
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = serializers.LibraryTokenSerializer

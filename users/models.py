@@ -1,8 +1,6 @@
 from django.db import models
-
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
-
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, Group
 
 class ManagerUser(BaseUserManager):
 
@@ -30,6 +28,8 @@ class ManagerUser(BaseUserManager):
         user = self.model(email=email, username=username,
                           first_name=first_name, cpf=cpf,**other_fields)
         user.set_password(password)
+        if not user.is_superuser:
+            user.groups.add(Group.objects.get(name='CLIENT'))
         user.save()
         return user
 
@@ -44,7 +44,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     created_at = models.DateTimeField(auto_now_add=True)
     cpf = models.CharField(max_length=11, unique=True, null=False)
     is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     objects = ManagerUser()
 
