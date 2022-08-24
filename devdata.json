@@ -39,6 +39,58 @@
     }
   },
   {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2022-08-24T00:01:02.931Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "1",
+      "object_repr": "ADMIN",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2022-08-24T00:01:27.060Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "2",
+      "object_repr": "CLIENT",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2022-08-24T00:02:15.659Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Cliente",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2022-08-24T00:11:33.239Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Cliente",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+  },
+  {
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -295,7 +347,10 @@
     "pk": 1,
     "fields": {
       "name": "ADMIN",
-      "permissions": []
+      "permissions": [
+        1, 2, 3, 4, 9, 10, 11, 12, 5, 6, 7, 8, 21, 22, 23, 24, 13, 14, 15, 16,
+        17, 18, 19, 20, 25, 26, 27, 28
+      ]
     }
   },
   {
@@ -303,7 +358,7 @@
     "pk": 2,
     "fields": {
       "name": "CLIENT",
-      "permissions": []
+      "permissions": [24]
     }
   },
   {
@@ -397,7 +452,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$390000$izzBb1nU7JK9An3mFwamah$ecllcUBRdFL3Pvgd/JoUoE7C6ZRD/ObhTCX4M+6ZDyI=",
-      "last_login": "2022-08-17T21:03:52Z",
+      "last_login": "2022-08-24T00:03:49.901Z",
       "is_superuser": true,
       "email": "arquiteto@email.com",
       "username": "arquiteto",
@@ -409,6 +464,26 @@
       "is_staff": true,
       "is_active": true,
       "groups": [1],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$0TX0bwrf5kmyJtBwu7R8yS$sHpE3fSiWNYlLBPqMlEG49nqfZ8hIEIExD0JCth7mkw=",
+      "last_login": "2022-08-24T00:03:04Z",
+      "is_superuser": false,
+      "email": "client@email.com",
+      "username": "client",
+      "first_name": "Cliente",
+      "last_name": "Silva",
+      "can_borrow": true,
+      "created_at": "2022-08-24T00:02:15.650Z",
+      "cpf": "12345678998",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [2],
       "user_permissions": []
     }
   }

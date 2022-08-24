@@ -23,7 +23,7 @@ class Users(UserAdmin):
                 )
             },
         ),
-        ("Permissions", {"fields": ("is_staff", "groups", "user_permissions")}),
+        ("Permissions", {"fields": ( "groups", "user_permissions","is_staff",)}),
         (
             "Personal",
             {
