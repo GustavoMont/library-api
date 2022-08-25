@@ -20,7 +20,6 @@ class ManagerUser(BaseUserManager):
         return self.create_user(email, username, first_name, password, cpf,**other_fields)
 
     def create_user(self, email, username, first_name, password, cpf,**other_fields):
-
         if not email:
             raise ValueError('You must provide an email address')
 
@@ -28,9 +27,9 @@ class ManagerUser(BaseUserManager):
         user = self.model(email=email, username=username,
                           first_name=first_name, cpf=cpf,**other_fields)
         user.set_password(password)
+        user.save()
         if not user.is_superuser:
             user.groups.add(Group.objects.get(name='CLIENT'))
-        user.save()
         return user
 
 

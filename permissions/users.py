@@ -9,6 +9,8 @@ class UsersPermissions(LibraryBasePermission):
     safe_methods = ['POST', 'OPTIONS', 'HEAD']
 
     def has_permission(self, request, view):
+        if request.method in self.safe_methods:
+            return True 
         if request.META['PATH_INFO'] == '/users/':
             return self.get_user_group(request.user) in self.alLowed_groups
         else:

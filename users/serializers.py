@@ -1,12 +1,36 @@
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from django.contrib.auth import user_logged_in
+from django.contrib.auth import user_logged_in, get_user_model
 from rest_framework import serializers
-from users.models import User
+from rest_framework.exceptions import APIException
+
+UserModel = get_user_model()
+
 
 class UserSerializer(serializers.ModelSerializer):
+
+    password = serializers.CharField(write_only=True)
+    password2 = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        if data['password'] != data['password2']:
+            raise APIException("The passwords doens't match")
+        return data
+
+    def create(self, data):
+        user = UserModel.objects.create_user(
+            email=data['email'],
+            cpf=data['cpf'],
+            last_name=data['last_name'],
+            first_name=data['first_name'],
+            username=data['username'],
+            password=data['password'],
+        )
+        return user
+
     class Meta:
-        model = User
-        fields = '__all__'
+        model = UserModel
+        fields = ('id','email', 'cpf', 'username', 'first_name', 'last_name', 'password', 'password2')
+
 
 class LibraryTokenSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):

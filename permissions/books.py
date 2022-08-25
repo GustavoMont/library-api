@@ -11,7 +11,7 @@ class BookPermission(LibraryBasePermission):
     alLowed_groups = ['ADMIN']
 
     def has_permission(self, request, view):
-        user_group = self.get_user_groups(request.user)
+        user_group = self.get_user_group(request.user)
         response = {
             "message": self.message,
             "status_code": status.HTTP_403_FORBIDDEN,
