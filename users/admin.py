@@ -19,6 +19,7 @@ class Users(UserAdmin):
                     "email",
                     "cpf",
                     'is_active',
+                    'can_borrow',
                     'password'
                 )
             },

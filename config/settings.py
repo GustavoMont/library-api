@@ -45,10 +45,12 @@ INSTALLED_APPS = [
     'rest_framework',
     "corsheaders",
     'book',
-    'users'
+    'users',
+    'loans',
 ]
 
 REST_FRAMEWORK = {
+    'DATETIME_FORMAT': "%Y-%m-%d",
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
