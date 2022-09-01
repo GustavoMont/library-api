@@ -3,4 +3,4 @@ from loans.views import LoanViewset
 
 router = routers.DefaultRouter()
 
-router.register(r'loans', LoanViewset)
+router.register(r'loans', LoanViewset, basename='Loans')

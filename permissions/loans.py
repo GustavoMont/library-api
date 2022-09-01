@@ -12,8 +12,3 @@ class LoansPermissions(LibraryBasePermission):
             if field in forbidden_fileds:
                 return False
         return obj.user.id == request.user.id
-
-    def has_permission(self, request, view):
-        if request.META['PATH_INFO'] == '/loans/':
-            return self.get_user_group(request.user) in self.alLowed_groups
-        return True
