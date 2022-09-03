@@ -6,6 +6,7 @@ class Book(models.Model):
     title = models.CharField(max_length=255, null=False)
     release_year = models.DateField()
     available = models.BooleanField(default=False)
+    description = models.TextField(null=False)
     author = models.CharField(max_length=255)
     quantity = models.IntegerField(null=False)
 
