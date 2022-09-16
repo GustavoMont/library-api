@@ -7,7 +7,7 @@ from permissions.LibraryBasePermission import LibraryBasePermission
 
 
 class BookPermission(LibraryBasePermission):
-    message = "Ei ei ei, quem ta lendo é gaykkkkkkkkkk"
+    message = "Não tem permissão para executar essa ação"
     alLowed_groups = ['ADMIN']
 
     def has_permission(self, request, view):
