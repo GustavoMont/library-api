@@ -552,7 +552,7 @@
     "fields": {
       "title": "Livro 2",
       "release_year": "2022-08-16",
-      "available": false,
+      "available": true,
       "description": "Description nÒo disponÝvel para este livro",
       "author": "Eu mesmo",
       "quantity": 9
